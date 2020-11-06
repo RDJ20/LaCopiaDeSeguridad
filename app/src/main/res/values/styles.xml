@@ -1,0 +1,66 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:statusBarColor">@color/colorAccent</item>
+        <item name="android:navigationBarColor">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/blanco</item>
+
+
+
+    </style>
+
+    <style name="ingresosTema" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/ingresoscolor</item>
+        <item name="colorPrimaryDark">@color/ingresoscolor</item> <!--Color naranja-->
+        <item name="colorAccent">@color/ingresoscolor</item>
+        <item name="android:statusBarColor">@color/ingresoscolor</item>
+        <item name="android:navigationBarColor">@color/barraingresos</item>
+        <item name="android:windowBackground">@color/blanco</item>
+
+    </style>
+
+
+    <style name="gastostema" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/ingresoscolor</item>
+        <item name="colorPrimaryDark">@color/ingresoscolor</item> <!--Color naranja-->
+        <item name="colorAccent">@color/ingresoscolor</item>
+        <item name="android:statusBarColor">@color/gastosnegro</item>
+        <item name="android:navigationBarColor">@color/rojogastos</item>
+        <item name="android:windowBackground">@color/blanco</item>
+
+    </style>
+
+    <style name="movimientostema" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/ingresoscolor</item>
+        <item name="colorPrimaryDark">@color/ingresoscolor</item> <!--Color naranja-->
+        <item name="colorAccent">@color/ingresoscolor</item>
+        <item name="android:statusBarColor">@color/barramovimientos</item>
+        <item name="android:navigationBarColor">@color/inferiormovimientos</item>
+        <item name="android:windowBackground">@color/blanco</item>
+
+    </style>
+
+
+
+
+
+
+
+
+
+    <!-- Este estilo es para lo que vendria siendo el Bottom Sheet INICIO -->
+
+    <style name="bottomtheme" parent="Theme.Design.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
+    </style>
+
+    <style name="BottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+    <!-- Este estilo es para lo que vendria siendo el Bottom Sheet FIN -->
+
+</resources>

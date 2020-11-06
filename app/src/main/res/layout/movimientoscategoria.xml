@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/todoo"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="0dp"
+    android:background="@drawable/bottomsheetbackground">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30px"
+        android:fontFamily="@font/font"
+        android:text="Elije una opción"
+        android:textColor="#000000"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:id="@+id/todo"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:padding="3dp">
+
+
+        <ImageView
+            android:layout_width="68dp"
+            android:layout_height="52dp"
+            android:src="@drawable/solarsystem"
+            app:srcCompat="@drawable/solarsystem" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30px"
+            android:fontFamily="@font/font"
+            android:text="Todo"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/agua"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:orientation="horizontal"
+        android:padding="3dp">
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="51dp"
+            android:src="@drawable/gota" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/font"
+            android:text="Agua"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/comida"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:padding="3dp">
+
+
+        <ImageView
+            android:layout_width="68dp"
+            android:layout_height="52dp"
+            android:src="@drawable/alimnetos" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30px"
+            android:fontFamily="@font/font"
+            android:text="Comida"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/casa"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:padding="3dp">
+
+
+        <ImageView
+            android:layout_width="68dp"
+            android:layout_height="52dp"
+            android:src="@drawable/casa" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30px"
+            android:fontFamily="@font/font"
+            android:text="Compras para la casa"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/otras"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:padding="3dp">
+
+
+        <ImageView
+            android:layout_width="68dp"
+            android:layout_height="52dp"
+            android:src="@drawable/cosas" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30px"
+            android:fontFamily="@font/font"
+            android:text="Otras"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/electricidad"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:padding="3dp">
+
+
+        <ImageView
+            android:layout_width="68dp"
+            android:layout_height="52dp"
+            android:src="@drawable/bombillo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30px"
+            android:fontFamily="@font/font"
+            android:text="Electricidad"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/sueldo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="3dp">
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="51dp"
+            android:src="@drawable/businessman"
+            app:srcCompat="@drawable/businessman" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/font"
+            android:text="Sueldo"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:id="@+id/regalo"
+        android:layout_width="423dp"
+        android:layout_height="59dp"
+        android:padding="3dp">
+
+
+        <ImageView
+            android:layout_width="68dp"
+            android:layout_height="52dp"
+            android:src="@drawable/regalo"
+            app:srcCompat="@drawable/regalo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30px"
+            android:fontFamily="@font/font"
+            android:text="Regalo"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/venta"
+        android:layout_width="423dp"
+        android:layout_height="59dp"
+        android:padding="3dp">
+
+
+        <ImageView
+            android:layout_width="68dp"
+            android:layout_height="52dp"
+            android:src="@drawable/store"
+            app:srcCompat="@drawable/store" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30px"
+            android:fontFamily="@font/font"
+            android:text="Venta"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/cielo"
+        android:layout_width="423dp"
+        android:layout_height="59dp"
+        android:padding="3dp">
+
+
+        <ImageView
+            android:layout_width="68dp"
+            android:layout_height="52dp"
+            android:src="@drawable/cloudy"
+            app:srcCompat="@drawable/cloudy" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30px"
+            android:fontFamily="@font/font"
+            android:text="Me cayó del cielo"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

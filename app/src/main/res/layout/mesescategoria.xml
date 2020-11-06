@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/meses"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="0dp"
+    android:background="@drawable/bottomsheetbackground">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30px"
+        android:fontFamily="@font/font"
+        android:text="Elije una opción"
+        android:textColor="#000000"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:id="@+id/enero"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:padding="3dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10px"
+            android:fontFamily="@font/font"
+            android:text="Enero"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/febrero"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:padding="3dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10px"
+            android:fontFamily="@font/font"
+            android:text="Febrero"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/marzo"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:padding="3dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10px"
+            android:fontFamily="@font/font"
+            android:text="Marzo"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/abril"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:padding="3dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10px"
+            android:fontFamily="@font/font"
+            android:text="Abril"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/mayo"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:padding="3dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10px"
+            android:fontFamily="@font/font"
+            android:text="Mayo"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/junio"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:padding="3dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10px"
+            android:fontFamily="@font/font"
+            android:text="Junio"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Julio"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:padding="3dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10px"
+            android:fontFamily="@font/font"
+            android:text="Julio xd"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/agosto"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:padding="3dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10px"
+            android:fontFamily="@font/font"
+            android:text="Agosto"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/septiembre"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:padding="3dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10px"
+            android:fontFamily="@font/font"
+            android:text="Septiembre"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/octubre"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:padding="3dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10px"
+            android:fontFamily="@font/font"
+            android:text="Octubre"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/noviembre"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:padding="3dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10px"
+            android:fontFamily="@font/font"
+            android:text="Noviembre"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/diciembre"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:padding="3dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10px"
+            android:fontFamily="@font/font"
+            android:text="Diciembre"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

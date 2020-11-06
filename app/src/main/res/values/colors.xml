@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3500B3</color>
+    <color name="colorAccent">#07B663</color>
+    <color name="ingresoscolor">#DB4F40</color>
+    <color name="gastosnegro">#101626</color>
+    <color name="rojogastos">#E73F29</color>
+    <color name="blanco">#FFFFFF</color>
+    <color name="barraingresos">#F88E0C</color>
+    <color name="barramovimientos">#E41577</color>
+    <color name="inferiormovimientos">#2C8FBC</color>
+    <color name="shapedelacardview">#D8D8D8</color>
+
+
+
+
+
+
+
+</resources>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="#FFFFFF"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="407dp"
+            android:layout_height="124dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/backgroundparalascardview">
+
+                <ImageView
+                    android:id="@+id/imageView27"
+                    android:layout_width="84dp"
+                    android:layout_height="72dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="31dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="292dp"
+                    android:layout_marginBottom="37dp"
+                    app:srcCompat="@drawable/alimnetos" />
+
+                <ImageView
+                    android:id="@+id/imageView30"
+                    android:layout_width="186dp"
+                    android:layout_height="65dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="121dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="100dp"
+                    android:layout_marginBottom="44dp"
+                    app:srcCompat="@drawable/fondotextocard" />
+
+                <ImageView
+                    android:id="@+id/imageView32"
+                    android:layout_width="188dp"
+                    android:layout_height="21dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="123dp"
+                    android:layout_marginTop="94dp"
+                    android:layout_marginEnd="96dp"
+                    android:layout_marginBottom="9dp"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/fondotextocard" />
+
+                <ImageView
+                    android:id="@+id/imageView31"
+                    android:layout_width="87dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="94dp"
+                    android:layout_marginEnd="292dp"
+                    android:layout_marginBottom="6dp"
+                    app:srcCompat="@drawable/fondotextocard" />
+
+                <ImageView
+                    android:id="@+id/imageView33"
+                    android:layout_width="90dp"
+                    android:layout_height="83dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="311dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginEnd="6dp"
+                    android:layout_marginBottom="19dp"
+                    app:srcCompat="@drawable/circuloamarillo" />
+
+                <TextView
+                    android:id="@+id/categoria"
+                    android:layout_width="139dp"
+                    android:layout_height="46dp"
+                    android:layout_alignStart="@+id/imageView30"
+                    android:layout_alignTop="@+id/imageView30"
+                    android:layout_alignEnd="@+id/imageView30"
+                    android:layout_alignBottom="@+id/imageView30"
+                    android:layout_marginStart="23dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="23dp"
+                    android:layout_marginBottom="9dp"
+                    android:fontFamily="@font/font"
+                    android:text="Comida"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:id="@+id/fecha"
+                    android:layout_width="171dp"
+                    android:layout_height="16dp"
+                    android:layout_alignStart="@+id/imageView32"
+                    android:layout_alignTop="@+id/imageView32"
+                    android:layout_alignEnd="@+id/imageView32"
+                    android:layout_alignBottom="@+id/imageView32"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginEnd="9dp"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="@font/font"
+                    android:text="11 de octubre del 2020"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/hora"
+                    android:layout_width="wrap_content"
+                    android:layout_height="19dp"
+                    android:layout_alignStart="@+id/imageView31"
+                    android:layout_alignTop="@+id/imageView31"
+                    android:layout_alignEnd="@+id/imageView31"
+                    android:layout_alignBottom="@+id/imageView31"
+                    android:layout_marginStart="13dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginEnd="9dp"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="@font/font"
+                    android:text="11:11"
+                    android:textAlignment="center"
+                    android:textColor="#050202"
+                    android:textSize="17sp" />
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
