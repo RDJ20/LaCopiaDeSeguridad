@@ -12,7 +12,6 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -302,7 +301,7 @@ public class Gastos extends AppCompatActivity implements DatePickerDialog.OnDate
 
 
     public void Inicio(View View){
-        Intent siguiente= new Intent(this, MainActivity.class);
+        Intent siguiente= new Intent(this, MainActivity3.class);
         startActivity(siguiente);
     }
     public void Ingresos(View View){

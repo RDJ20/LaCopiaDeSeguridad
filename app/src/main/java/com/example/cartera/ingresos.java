@@ -303,7 +303,7 @@ private RelativeLayout layout;
 
         // Esta codigo funciona para hacer que el boton cambie de Activity y es un metodo INICIO
     public void Siguiente(View View){
-        Intent siguiente= new Intent(this, MainActivity.class);
+        Intent siguiente= new Intent(this, MainActivity3.class);
         startActivity(siguiente);
 
         // Esta codigo funciona para hacer que el boton cambie de Activity y es un metodo FIN

@@ -9,17 +9,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        
         <activity
             android:name=".Movimientos"
-            android:theme="@style/movimientostema"
-            >
+            android:theme="@style/movimientostema"></activity>
 
+        <activity
+            android:name=".ListDataActivity"
+            android:theme="@style/movimientostema"></activity>
+        
 
-        </activity>
         <activity
             android:name=".Gastos"
-            android:theme="@style/gastostema"></activity>
-        <activity android:name=".MainActivity">
+            android:theme="@style/gastostema" />
+        <activity android:name=".MainActivity3">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

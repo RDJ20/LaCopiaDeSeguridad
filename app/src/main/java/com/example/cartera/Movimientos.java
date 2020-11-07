@@ -4,14 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -342,7 +340,7 @@ public class Movimientos extends AppCompatActivity {
     }
 
     public void Inicio(View View){
-        Intent siguiente= new Intent(this, MainActivity.class);
+        Intent siguiente= new Intent(this, MainActivity3.class);
         startActivity(siguiente);
     }
     public void Gastos(View View){
@@ -353,11 +351,17 @@ public class Movimientos extends AppCompatActivity {
         Intent siguiente= new Intent(this, ingresos.class);
         startActivity(siguiente);
     }
+    public void Base(View View){
+        Intent siguiente = new Intent(this, MainActivity.class);
+        startActivity(siguiente);
+    }
+
+
 
 
     public void init() {
         elements= new ArrayList<>();
-        elements.add(new ListElement(592,"Efectivo","12 de octubre","45:11","Comida","prueba jeje"));
+        elements.add(new ListElement(592,null,"12 de octubre","45:11","Comida","prueba jeje"));
         elements.add(new ListElement(452,"credito","13 de octubre","46:11","Casa","prueba jje"));
         elements.add(new ListElement(45,"Efectivo","14 de octubre","85:11","Otras","prueba jejee"));
 
@@ -367,4 +371,5 @@ public class Movimientos extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(listAdapter);
     }
+
 }
