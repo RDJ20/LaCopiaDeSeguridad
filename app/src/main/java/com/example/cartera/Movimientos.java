@@ -12,13 +12,52 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+import java.util.ArrayList;
+
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Movimientos extends AppCompatActivity {
+
+
+    //Se crean las variables para el boton y el recycler view
+    RecyclerView recyclerView;
+
+
+
+    SwipeRefreshLayout swipeRefreshLayout;
+
+    // Creo un objeto de MyDataBase para usar el readAll
+    MyDatabaseHelper myDB;
+    ArrayList<String> metodo_input, categoria_input, hora_input, fecha_input, cantidad_input, descripcion_input;
+    CustomAdapter customAdapter;
+
+
 
     private Button mostrarlaycategoriamovi;
     private BottomSheetDialog bottomsheetcategoriamovi;
@@ -27,6 +66,10 @@ public class Movimientos extends AppCompatActivity {
     private Button mostrarlaycategoriamovi2;
     private BottomSheetDialog bottomsheetcategoriamovi2;
     TextView txtmovi2;
+
+    private Button mostrarlaycategoriamovi3;
+    private BottomSheetDialog bottomsheetcategoriamovi3;
+    TextView txtmovi3;
 
 
 
@@ -39,7 +82,65 @@ public class Movimientos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movimientos);
 
-        init();
+
+        swipeRefreshLayout=findViewById(R.id.SwipeUp);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                //Como aqui se repite lo que se van a poner en los ietms de las cardview
+                // entonces tenemos que limpiar los arraylist de los datos que ya tenian para poder
+                //imprimirlos otra vez
+               metodo_input.clear(); ;
+               categoria_input.clear();
+               hora_input.clear();
+               fecha_input.clear();
+               cantidad_input.clear();
+               descripcion_input.clear();
+
+               // aqui se copia y se quita el void de lo que vedria siendo el storeDataInArrays
+                // solo para que nos ejecute el metodo de la base de datos y nos agregue campos a los arraylist
+                    //Declaro un objero Cursor y le= dijo que iba a ser igual al metodo de MyDatabAse readAllData
+                    Cursor cursor = myDB.readAllDta();
+                    if(cursor.getCount() == 0){
+
+                    }else{
+                        while (cursor.moveToNext()){
+                            // Aqui obtiene los datos de los array y los pone en cada columna de la tabla
+                            cantidad_input.add(cursor.getString(1));
+                            metodo_input.add(cursor.getString(2));
+                            fecha_input.add(cursor.getString(3));
+                            hora_input.add(cursor.getString(4));
+                            categoria_input.add(cursor.getString(5));
+                            descripcion_input.add(cursor.getString(6));
+                            System.out.println("hola: "+cantidad_input);
+                        }
+                        customAdapter.notifyDataSetChanged();
+                        swipeRefreshLayout.setRefreshing(false);
+
+                }
+            }
+        });
+
+        // Se les busca por su ID
+        recyclerView = findViewById(R.id.laviureciclada);
+
+// instancio la variable de MyBaseData  y le puso contesto aqui
+        myDB = new MyDatabaseHelper(Movimientos.this);
+        //inicializo los arraylist
+        cantidad_input = new ArrayList<>();
+        metodo_input = new ArrayList<>();
+        fecha_input = new ArrayList<>();
+        hora_input = new ArrayList<>();
+        categoria_input = new ArrayList<>();
+        descripcion_input = new ArrayList<>();
+
+
+        storeDataInArrays();
+
+        customAdapter = new CustomAdapter(Movimientos.this,this, cantidad_input, metodo_input, fecha_input, hora_input,
+                categoria_input, descripcion_input);
+        recyclerView.setAdapter(customAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(Movimientos.this));
 
 
         mostrarlaycategoriamovi=findViewById(R.id.botoncategoriamovi);
@@ -47,6 +148,10 @@ public class Movimientos extends AppCompatActivity {
 
         mostrarlaycategoriamovi2=findViewById(R.id.button4);
         txtmovi2=findViewById(R.id.textView);
+
+
+
+
 
 
         mostrarlaycategoriamovi.setOnClickListener(new View.OnClickListener() {
@@ -60,109 +165,41 @@ public class Movimientos extends AppCompatActivity {
                         (ViewGroup) findViewById(R.id.todoo));
 
                 //Esta parte del codigo dice por ejemplo que cuando alguien haga click sobre el layout "hola" se va mostrar un mensaje o algo
-                sheetView.findViewById(R.id.sueldo).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(android.view.View v) {
-                        Toast.makeText(Movimientos.this, "Categoria: Sueldo", Toast.LENGTH_SHORT).show();
-                        bottomsheetcategoriamovi.dismiss();
-                        txtmovi.setTextSize(30);
-                        txtmovi.setText("Sueldo");
-
-                    }
-                });
-
                 sheetView.findViewById(R.id.todo).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(android.view.View v) {
                         Toast.makeText(Movimientos.this, "Categoria: Todo", Toast.LENGTH_SHORT).show();
                         bottomsheetcategoriamovi.dismiss();
+
                         txtmovi.setTextSize(30);
                         txtmovi.setText("Todo");
 
                     }
                 });
 
-                sheetView.findViewById(R.id.regalo).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(android.view.View v) {
-                        Toast.makeText(Movimientos.this, "Categoria: Regalo", Toast.LENGTH_SHORT).show();
-                        bottomsheetcategoriamovi.dismiss();
-                        txtmovi.setTextSize(30);
-                        txtmovi.setText("Regalo");
-
-                    }
-                });
-
-                sheetView.findViewById(R.id.venta).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(android.view.View v) {
-                        Toast.makeText(Movimientos.this, "Categoria: Ventas", Toast.LENGTH_SHORT).show();
-                        bottomsheetcategoriamovi.dismiss();
-                        txtmovi.setTextSize(30);
-                        txtmovi.setText("Venta");
-                    }
-                });
-
-                sheetView.findViewById(R.id.cielo).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(android.view.View v) {
-                        Toast.makeText(Movimientos.this, "Categoria: Bless", Toast.LENGTH_SHORT).show();
-                        bottomsheetcategoriamovi.dismiss();
-                        txtmovi.setTextSize(17);
-                        txtmovi.setText("Me cayó del cielo");
-                    }
-                });
-
-                //Esta parte del codigo dice por ejemplo que cuando alguien haga click sobre el layout "hola" se va mostrar un mensaje o algo
                 sheetView.findViewById(R.id.agua).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(android.view.View v) {
-                        Toast.makeText(Movimientos.this, "Categoria: Agua", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Movimientos.this, "Categoria: Ingresos", Toast.LENGTH_SHORT).show();
                         bottomsheetcategoriamovi.dismiss();
                         txtmovi.setTextSize(30);
-                        txtmovi.setText("Agua");
-                    }
-                });
+                        txtmovi.setText("Ingresos");
 
-                sheetView.findViewById(R.id.electricidad).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(android.view.View v) {
-                        Toast.makeText(Movimientos.this, "Categoria: Electricidad", Toast.LENGTH_SHORT).show();
-                        bottomsheetcategoriamovi.dismiss();
-                        txtmovi.setTextSize(25);
-                        txtmovi.setText("Electricidad");
                     }
                 });
 
                 sheetView.findViewById(R.id.comida).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(android.view.View v) {
-                        Toast.makeText(Movimientos.this, "Categoria: Comida", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Movimientos.this, "Categoria: Gastos", Toast.LENGTH_SHORT).show();
                         bottomsheetcategoriamovi.dismiss();
                         txtmovi.setTextSize(30);
-                        txtmovi.setText("Comida");
+                        txtmovi.setText("Gastos");
+
                     }
                 });
 
-                sheetView.findViewById(R.id.casa).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(android.view.View v) {
-                        Toast.makeText(Movimientos.this, "Categoria: Compras para la Casa", Toast.LENGTH_SHORT).show();
-                        bottomsheetcategoriamovi.dismiss();
-                        txtmovi.setTextSize(12);
-                        txtmovi.setText("Compras para la Casa");
-                    }
-                });
 
-                sheetView.findViewById(R.id.otras).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(android.view.View v) {
-                        Toast.makeText(Movimientos.this, "Categoria: Otras", Toast.LENGTH_SHORT).show();
-                        bottomsheetcategoriamovi.dismiss();
-                        txtmovi.setTextSize(30);
-                        txtmovi.setText("Otras");
-                    }
-                });
 
 
                 bottomsheetcategoriamovi.setContentView(sheetView);
@@ -339,6 +376,27 @@ public class Movimientos extends AppCompatActivity {
 
     }
 
+    // pone los datos en Arraylist
+    void storeDataInArrays(){
+        //Declaro un objero Cursor y le dijo que iba a ser igual al metodo de MyDatabAse readAllData
+        Cursor cursor = myDB.readAllData();
+        if(cursor.getCount() == 0){
+
+        }else{
+            while (cursor.moveToNext()){
+                // Aqui obtiene los datos de los array y los pone en cada columna de la tabla
+                cantidad_input.add(cursor.getString(1));
+                metodo_input.add(cursor.getString(2));
+                fecha_input.add(cursor.getString(3));
+                hora_input.add(cursor.getString(4));
+                categoria_input.add(cursor.getString(5));
+                descripcion_input.add(cursor.getString(6));
+                System.out.println("hola: "+cantidad_input);
+            }
+
+        }
+    }
+
     public void Inicio(View View){
         Intent siguiente= new Intent(this, MainActivity3.class);
         startActivity(siguiente);
@@ -351,25 +409,11 @@ public class Movimientos extends AppCompatActivity {
         Intent siguiente= new Intent(this, ingresos.class);
         startActivity(siguiente);
     }
-    public void Base(View View){
-        Intent siguiente = new Intent(this, MainActivity.class);
-        startActivity(siguiente);
-    }
 
 
 
 
-    public void init() {
-        elements= new ArrayList<>();
-        elements.add(new ListElement(592,null,"12 de octubre","45:11","Comida","prueba jeje"));
-        elements.add(new ListElement(452,"credito","13 de octubre","46:11","Casa","prueba jje"));
-        elements.add(new ListElement(45,"Efectivo","14 de octubre","85:11","Otras","prueba jejee"));
 
-        ListAdapter listAdapter= new ListAdapter(elements, this);
-        RecyclerView recyclerView= findViewById(R.id.laviureciclada);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(listAdapter);
-    }
+
 
 }

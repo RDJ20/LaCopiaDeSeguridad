@@ -31,6 +31,11 @@ import java.util.Locale;
 
 public class Gastos extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
+    //Aqui agrefo los elementos del activity de agregar libros
+    TextView metodo_input, categoria_input, hora_input, fecha_input;
+    EditText cantidad_input, descripcion_input;
+    ImageView guardar_button;
+
     //para mostrar el bottom sheet
     private Button showSheet;
     private BottomSheetDialog bottomSheetDialog;
@@ -54,6 +59,8 @@ public class Gastos extends AppCompatActivity implements DatePickerDialog.OnDate
     private TextView mes;
     private TextView hora;
     private TextView dia;
+    private TextView fecha;
+
 
 
 
@@ -73,6 +80,41 @@ public class Gastos extends AppCompatActivity implements DatePickerDialog.OnDate
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gastos);
+
+        // Aqui busco los elementos por su id
+        cantidad_input = findViewById(R.id.numeroingreso);
+        metodo_input = findViewById(R.id.efectivo);
+        fecha_input = findViewById(R.id.textView12);
+        guardar_button = findViewById(R.id.imageView10);
+        hora_input = findViewById(R.id.casillahora);
+        categoria_input = findViewById(R.id.textcategoria);
+        descripcion_input= findViewById(R.id.editTextTextPersonName);
+
+        guardar_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Aqui creamos un objeto de la clase esa, solo le pasamos un parametro que es el contexto y le decimos que es aqui
+                MyDatabaseHelper myDB = new MyDatabaseHelper(Gastos.this);
+
+                //Aqui mandamos a llamar el metodo addBook de la clase esa y le pasamos los 3 parametros
+                myDB.addBook(
+                        Integer.valueOf(cantidad_input.getText().toString().trim()),
+                        metodo_input.getText().toString().trim(),
+                        fecha_input.getText().toString().trim(),
+                        hora_input.getText().toString().trim(),
+                        categoria_input.getText().toString().trim(),
+                        descripcion_input.getText().toString().trim());
+                System.out.println("hola1"+cantidad_input.getText().toString());
+                System.out.println("hola2"+metodo_input.getText().toString());
+                System.out.println("hola3"+fecha_input.getText().toString());
+                System.out.println("hola4"+hora_input.getText().toString());
+                System.out.println("hola5"+categoria_input.getText().toString());
+                System.out.println("hola6"+descripcion_input.getText().toString());
+            }
+
+        });
+
+
 
         //---------------------------------------------------------------------------------------------------------
         // Se declara una variable textview para poder cambiarle el nombre al hacer click en efectivo o credito y se busca por su id
@@ -98,6 +140,7 @@ public class Gastos extends AppCompatActivity implements DatePickerDialog.OnDate
         mes = findViewById(R.id.casillames);
         dia = findViewById(R.id.casilladia);
         hora =findViewById(R.id.casillahora);
+        fecha= findViewById(R.id.textView12);
         //---------------------------------------------------------------------------------------------------------
 
 
@@ -120,6 +163,7 @@ public class Gastos extends AppCompatActivity implements DatePickerDialog.OnDate
         dia.setText(values[0]);
         mes.setText(strMonth);
         año.setText(values[2]);
+        fecha.setText(values[0]+"/"+strMonth+"/"+values[2]);
         hora.setText(values[3]+":"+strMinuto);
         //---------------------------------------------------------------------------------------------------------
 
@@ -371,6 +415,7 @@ public class Gastos extends AppCompatActivity implements DatePickerDialog.OnDate
         dia.setText(date);
         mes.setText(meees);
         año.setText(añooo);
+        fecha.setText(date+"/"+mees+"/"+añooo);
         //Recordar el error que me daba antes era por que habia escrito dos veces Text View, 1 cuando declare las variables
         // y otra cuando los busque por su ID y al parecer solo es una vez xd
 

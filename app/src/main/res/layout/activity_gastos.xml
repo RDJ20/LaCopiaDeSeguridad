@@ -433,6 +433,14 @@
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/menoses" />
 
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="42dp"
+        tools:layout_editor_absoluteY="536dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

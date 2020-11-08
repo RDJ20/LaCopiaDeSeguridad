@@ -40,7 +40,7 @@
         android:layout_height="155px"
         android:background="@drawable/recmovi3"
         android:fontFamily="@font/font"
-        android:onClick="Base"
+        android:onClick="Inicio"
         android:text="inicio"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -72,30 +72,43 @@
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/movi" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/laviureciclada"
-        android:layout_width="409dp"
-        android:layout_height="375dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/button890"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/SwipeUp"
+        android:layout_width="405dp"
+        android:layout_height="436dp"
+        app:layout_constraintBottom_toTopOf="@+id/button5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView7"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/laviureciclada"
+            android:layout_width="412dp"
+            android:layout_height="435dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="1dp"
+            app:layout_constraintBottom_toTopOf="@+id/button890"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView7"
+            app:layout_constraintVertical_bias="1.0" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
 
     <ImageView
         android:id="@+id/imageView28"
-        android:layout_width="142dp"
-        android:layout_height="49dp"
+        android:layout_width="145dp"
+        android:layout_height="42dp"
         app:layout_constraintBottom_toBottomOf="@+id/button5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.828"
+        app:layout_constraintHorizontal_bias="0.819"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView7"
-        app:layout_constraintVertical_bias="0.178"
+        app:layout_constraintVertical_bias="0.134"
         app:srcCompat="@drawable/categoria" />
 
     <ImageView
@@ -105,10 +118,10 @@
         android:layout_marginTop="11px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.258"
+        app:layout_constraintHorizontal_bias="0.249"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView7"
-        app:layout_constraintVertical_bias="0.185"
+        app:layout_constraintVertical_bias="0.126"
         app:srcCompat="@drawable/mes" />
 
     <Button
@@ -121,7 +134,7 @@
         app:layout_constraintHorizontal_bias="0.202"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView7"
-        app:layout_constraintVertical_bias="0.09" />
+        app:layout_constraintVertical_bias="0.031" />
 
     <Button
         android:id="@+id/botoncategoriamovi"
@@ -130,10 +143,10 @@
         android:background="@drawable/recgrand"
         app:layout_constraintBottom_toBottomOf="@+id/button5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.83"
+        app:layout_constraintHorizontal_bias="0.822"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView7"
-        app:layout_constraintVertical_bias="0.09" />
+        app:layout_constraintVertical_bias="0.03" />
 
     <TextView
         android:id="@+id/textView"
@@ -156,7 +169,7 @@
         android:text="Todo"
         android:textColor="#072448"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView28"
+        app:layout_constraintBottom_toBottomOf="@+id/botoncategoriamovi"
         app:layout_constraintEnd_toEndOf="@+id/botoncategoriamovi"
         app:layout_constraintStart_toStartOf="@+id/botoncategoriamovi"
         app:layout_constraintTop_toTopOf="@+id/botoncategoriamovi" />

@@ -26,6 +26,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.text.SimpleDateFormat;
@@ -33,6 +34,13 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class ingresos extends AppCompatActivity  implements DatePickerDialog.OnDateSetListener {
+
+    //Aqui agrefo los elementos del activity de agregar libros
+    TextView metodo_input, categoria_input, hora_input, fecha_input;
+    EditText cantidad_input, descripcion_input;
+    ImageView guardar_button;
+
+
     //para mostrar el bottom sheet
 private Button showSheet;
 private BottomSheetDialog bottomSheetDialog;
@@ -56,6 +64,9 @@ private TextView año;
 private TextView mes;
 private TextView hora;
 private TextView dia;
+private TextView fecha;
+
+
 
 
 
@@ -75,6 +86,43 @@ private RelativeLayout layout;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ingresos);
 
+        // Aqui busco los elementos por su id
+        cantidad_input = findViewById(R.id.numeroingreso);
+        metodo_input = findViewById(R.id.efectivo);
+        fecha_input = findViewById(R.id.textView11);
+        guardar_button = findViewById(R.id.imageView10);
+        hora_input = findViewById(R.id.casillahora);
+        categoria_input = findViewById(R.id.textcategoria);
+        descripcion_input= findViewById(R.id.editTextTextPersonName);
+
+
+        guardar_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Aqui creamos un objeto de la clase esa, solo le pasamos un parametro que es el contexto y le decimos que es aqui
+                MyDatabaseHelper myDB = new MyDatabaseHelper(ingresos.this);
+
+                //Aqui mandamos a llamar el metodo addBook de la clase esa y le pasamos los 3 parametros
+                myDB.addBook(
+                        Integer.valueOf(cantidad_input.getText().toString().trim()),
+                        metodo_input.getText().toString().trim(),
+                        fecha_input.getText().toString().trim(),
+                        hora_input.getText().toString().trim(),
+                        categoria_input.getText().toString().trim(),
+                        descripcion_input.getText().toString().trim());
+                System.out.println("hola1"+cantidad_input.getText().toString());
+                System.out.println("hola2"+metodo_input.getText().toString());
+                System.out.println("hola3"+fecha_input.getText().toString());
+                System.out.println("hola4"+hora_input.getText().toString());
+                System.out.println("hola5"+categoria_input.getText().toString());
+                System.out.println("hola6"+descripcion_input.getText().toString());
+            }
+
+        });
+
+
+
+
         //---------------------------------------------------------------------------------------------------------
         // Se declara una variable textview para poder cambiarle el nombre al hacer click en efectivo o credito y se busca por su id
         txt= (TextView) findViewById(R.id.efectivo);
@@ -86,7 +134,21 @@ private RelativeLayout layout;
         numeroingreso=(EditText) findViewById(R.id.numeroingreso);
         // Para el Dialogo de calendario
         layout= findViewById(R.id.linearLayout);
+
+
+
+
         //---------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -99,6 +161,7 @@ private RelativeLayout layout;
          mes = findViewById(R.id.casillames);
          dia = findViewById(R.id.casilladia);
          hora =findViewById(R.id.casillahora);
+         fecha= findViewById(R.id.textView11);
         //---------------------------------------------------------------------------------------------------------
 
 
@@ -118,12 +181,16 @@ private RelativeLayout layout;
         Format m= new SimpleDateFormat("mm");
         m = new SimpleDateFormat("mm");
         String strMinuto = m.format(new Date());
+
         dia.setText(values[0]);
         mes.setText(strMonth);
         año.setText(values[2]);
         hora.setText(values[3]+":"+strMinuto);
+        fecha.setText(values[0]+"/"+strMonth+"/"+values[2]);
         String fecha= values[0]+" "+strMonth+" "+values[2]+" ";
         String horaa=values[3]+":"+strMinuto;
+
+
         //---------------------------------------------------------------------------------------------------------
 
 
@@ -309,6 +376,9 @@ private RelativeLayout layout;
         // Esta codigo funciona para hacer que el boton cambie de Activity y es un metodo FIN
 
     }
+    public  void boton(View View){
+
+    }
     public void Gastos(View View){
         Intent siguiente= new Intent(this, Gastos.class);
         startActivity(siguiente);
@@ -317,6 +387,7 @@ private RelativeLayout layout;
         Intent siguiente= new Intent(this, Movimientos.class);
         startActivity(siguiente);
     }
+
 
 
 
@@ -338,6 +409,7 @@ private RelativeLayout layout;
                 Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
 
         dialogofecha.show();
+
     }
 
 
@@ -378,10 +450,15 @@ private RelativeLayout layout;
         dia.setText(date);
         mes.setText(meees);
         año.setText(añooo);
+        fecha.setText(date+"/"+mees+"/"+añooo);
         //Recordar el error que me daba antes era por que habia escrito dos veces Text View, 1 cuando declare las variables
         // y otra cuando los busque por su ID y al parecer solo es una vez xd
 
     }
+
+
+
+
 
 
 
